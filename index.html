@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Win a $500 Gift Card!</title>
+  <title>Win a $500 Cash App Card!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* 彻底禁止页面滚动 */
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden; /* 禁止上下左右滚动 */
-      width: 100vw;
-      height: 100vh;
       font-family: Arial, sans-serif;
-      background-image: url('leone-venter-mTkXSSScrzw-unsplash.jpg'); 
+      overflow: hidden;
+      height: 100%;
+    }
+    body {
+      background-image: url('leone-venter-mTkXSSScrzw-unsplash.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -22,11 +22,10 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 20px;
       transition: background-image 0.5s ease-in-out;
-      box-sizing: border-box;
     }
 
-    /* 手机端背景切换 */
     @media (max-width: 480px) {
       body {
         background-image: url('gft.jpg');
@@ -41,13 +40,16 @@
       max-width: 400px;
       width: 100%;
       backdrop-filter: blur(5px);
-      box-sizing: border-box;
     }
 
     h1 {
       color: #222;
       font-size: 1.8em;
-      margin: 0 0 10px 0;
+    }
+
+    p {
+      margin-top: 8px;
+      color: #444;
     }
 
     .timer {
@@ -66,15 +68,12 @@
       display: inline-block;
       margin-top: 20px;
       transition: background 0.3s;
-      position: relative;
-      color: inherit;
     }
 
     .button:hover {
       background-color: #218838;
     }
 
-    /* 手机端适配 */
     @media (max-width: 480px) {
       .container {
         padding: 20px;
@@ -84,31 +83,26 @@
       }
       .button {
         width: 100%;
-        font-size: 1.1em;
-        padding: 14px 0;
-        color: transparent; /* 隐藏文字 */
+        font-size: 1em;
+        padding: 12px 0;
       }
       .button::after {
-        content: "Go";
-        color: white;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
+        content: "→";
+        margin-left: 6px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎁 Win a $500 Gift Card!</h1>
-    <p>Just answer a few questions to enter.</p>
-    <p class="timer">This offer expires in: <span id="countdown">04:59</span></p>
-    <a class="button" href="https://your-affiliate-link.com" target="_blank">Continue</a>
+    <h1>🎉 Win a $500 Cash App Card!</h1>
+    <p>Jennifer’s Finds shares a real perk today 💵</p>
+    <p>Answer a few questions, verify your PayPal & grab your shot!</p>
+    <p class="timer">⏰ Offer expires in: <span id="countdown">02:19</span></p>
+    <a class="button" href="https://sftdn-fast.com/?a=212340&o=152754&c=0&co=267520&mt=19" target="_blank">Get Started</a>
   </div>
   <script>
-    let time = 299;
+    let time = 139; // 2 min 19 sec
     const countdownEl = document.getElementById('countdown');
     setInterval(() => {
       const min = Math.floor(time / 60);
