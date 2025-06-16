@@ -5,9 +5,13 @@
   <title>Win a $500 Gift Card!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
+    /* 禁止手机横向滚动 */
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
+      height: 100%;
       background-image: url('leone-venter-mTkXSSScrzw-unsplash.jpg'); 
       background-size: cover;
       background-position: center;
@@ -76,6 +80,23 @@
       .button {
         width: 100%;
         font-size: 1.1em;
+        padding: 14px 0; /* 按钮左右padding去掉点更合适 */
+      }
+      .button::after {
+        content: "Go";  /* 手机端按钮文本改成Go */
+        display: inline-block;
+      }
+      /* 隐藏原按钮文字 */
+      .button {
+        color: transparent;  /* 先让文字透明 */
+        position: relative;
+      }
+      .button::after {
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   </style>
