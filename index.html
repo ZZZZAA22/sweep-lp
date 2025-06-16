@@ -19,6 +19,14 @@
       min-height: 100vh;
       text-align: center;
       padding: 20px;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    /* 手机端背景图切换 */
+    @media (max-width: 480px) {
+      body {
+        background-image: url('gft.jpg');
+      }
     }
 
     .container {
