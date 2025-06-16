@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Win a $500 Gift Card!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+        }
+        .timer {
+            font-size: 1.2em;
+            color: #ff4d4f;
+            margin: 10px 0;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Win a $500 Gift Card!</h1>
+        <p>Just answer a few questions to enter.</p>
+        <p class="timer">This offer expires in: <span id="countdown">04:59</span></p>
+        <a class="button" href="https://your-affiliate-link.com">Continue</a>
+    </div>
+    <script>
+        let time = 299;
+        const countdownEl = document.getElementById('countdown');
+        setInterval(() => {
+            const min = Math.floor(time / 60);
+            const sec = time % 60;
+            countdownEl.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+            if (time > 0) time--;
+        }, 1000);
+    </script>
+</body>
+</html>
