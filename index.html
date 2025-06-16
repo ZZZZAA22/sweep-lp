@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Win a $500 Cash App Card!</title>
+  <title>Win a $500 PayPal Gift Card!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     html, body {
@@ -58,8 +58,23 @@
       margin: 12px 0;
     }
 
+    ul.options {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+
+    ul.options li {
+      margin: 6px 0;
+      padding: 10px 15px;
+      background: #f2f2f2;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
     .button {
-      background-color: #28a745;
+      background-color: #0070ba;
       color: white;
       padding: 14px 20px;
       text-decoration: none;
@@ -71,7 +86,7 @@
     }
 
     .button:hover {
-      background-color: #218838;
+      background-color: #005ea6;
     }
 
     @media (max-width: 480px) {
@@ -87,22 +102,27 @@
         padding: 12px 0;
       }
       .button::after {
-        content: "→";
-        margin-left: 6px;
+        content: " →";
+        margin-left: 4px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎉 Win a $500 Cash App Card!</h1>
-    <p>Jennifer’s Finds shares a real perk today 💵</p>
-    <p>Answer a few questions, verify your PayPal & grab your shot!</p>
-    <p class="timer">⏰ Offer expires in: <span id="countdown">02:19</span></p>
-    <a class="button" href="https://sftdn-fast.com/?a=212340&o=152754&c=0&co=267520&mt=19" target="_blank">Get Started</a>
+    <h1>💰 Win a $500 PayPal Gift Card!</h1>
+    <p>Join Boxtiked content for a chance to win big – all free.</p>
+    <p class="timer">⏰ Offer expires in: <span id="countdown">05:00</span></p>
+    <p>What would you spend $500 on?</p>
+    <ul class="options">
+      <li>Housing Payments</li>
+      <li>Groceries</li>
+      <li>Credit Card Bills</li>
+    </ul>
+    <a class="button" href="https://sftdn-fast.com/?a=212340&c=407730&co=267520&mt=19" target="_blank">Claim Now</a>
   </div>
   <script>
-    let time = 139; // 2 min 19 sec
+    let time = 231; // 3 min 51 sec
     const countdownEl = document.getElementById('countdown');
     setInterval(() => {
       const min = Math.floor(time / 60);
