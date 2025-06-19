@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Win $500 PayPal Gift Card</title>
+  <title>Win a $500 PayPal Gift Card!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph for Facebook, LinkedIn, etc. --> 
-  <meta property="og:title" content="Win a $500 PayPal Gift Card!" /> 
-  <meta property="og:description" content="Join now for a chance to win – only 1 day left!" /> 
-  <meta property="og:image" content="https://trovanta.net/share-preview.jpg" /> 
-  <meta property="og:url" content="https://trovanta.net/" /> 
-  <meta property="og:type" content="website" /> 
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Win a $500 PayPal Gift Card!" />
+  <meta property="og:description" content="Join now for a chance to win – only 1 day left!" />
+  <meta property="og:image" content="https://trovanta.net/share-preview.jpg" />
+  <meta property="og:url" content="https://trovanta.net/" />
+  <meta property="og:type" content="website" />
 
-  <!-- Twitter Card --> 
-  <meta name="twitter:card" content="summary_large_image" /> 
-  <meta name="twitter:title" content="Win a $500 PayPal Gift Card!" /> 
-  <meta name="twitter:description" content="Join now for a chance to win – offer expires soon!" /> 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Win a $500 PayPal Gift Card!" />
+  <meta name="twitter:description" content="Join now for a chance to win – offer expires soon!" />
   <meta name="twitter:image" content="https://trovanta.net/share-preview.jpg" />
 
   <style>
@@ -63,15 +63,22 @@
       padding: 40px;
       border-radius: 14px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      max-width: 480px;
+      max-width: 500px;
       width: 100%;
       backdrop-filter: blur(5px);
     }
 
     h1 {
       color: #222;
-      font-size: 1.9em;
-      margin-bottom: 16px;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      color: #0070ba;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     p {
@@ -94,7 +101,7 @@
       font-size: 1em;
       border-radius: 8px;
       display: inline-block;
-      margin-top: 20px;
+      margin: 10px auto;
       transition: background 0.3s;
       cursor: pointer;
     }
@@ -107,23 +114,27 @@
       .container {
         padding: 24px;
       }
+
       h1 {
         font-size: 1.6em;
       }
-      p {
-        font-size: 1em;
+
+      .subtitle {
+        font-size: 1.1em;
       }
+
       .button {
         width: 100%;
-        font-size: 1em;
         padding: 12px 0;
+        font-size: 1em;
       }
     }
   </style>
 </head>
 <body>
   <div class="container" id="stepContainer">
-    <h1>💰 Win $500 PayPal Cash</h1>
+    <h1>Win a $500 PayPal Gift Card!</h1>
+    <div class="subtitle">🎉 3 simple steps to enter – don’t miss out!</div>
     <p id="question">Do you have a PayPal account?</p>
     <div id="options">
       <button class="button" onclick="nextStep()">Yes</button>
@@ -140,13 +151,14 @@
     function nextStep() {
       step++;
       if (step === 2) {
-        question.textContent = "What would you use $500 for?";
+        question.textContent = "What would you spend $500 on?";
         options.innerHTML = `
           <button class="button" onclick="nextStep()">Groceries</button>
           <button class="button" onclick="nextStep()">Bills</button>
+          <button class="button" onclick="nextStep()">Shopping</button>
         `;
       } else if (step === 3) {
-        question.textContent = "Are you ready to claim your chance?";
+        question.textContent = "Ready to confirm your chance?";
         options.innerHTML = `
           <a class="button" href="https://ky91x.bemobtrk.com/go/23253cf5-dd23-43f1-b41e-dfa2ae9198ca?" target="_blank">Claim Now</a>
         `;
