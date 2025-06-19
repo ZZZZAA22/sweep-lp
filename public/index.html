@@ -1,137 +1,130 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Spin to Win $500 PayPal Cash!</title>
+  <title>Win $500 PayPal Gift Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Spin the Wheel & Win $500!" />
-  <meta property="og:description" content="Try your luck now – Instant prizes up for grabs!" />
-  <meta property="og:image" content="https://yourdomain.com/share-preview.jpg" />
-  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:title" content="Win a $500 PayPal Gift Card!" />
+  <meta property="og:description" content="Join now for a chance to win – only 1 day left!" />
+  <meta property="og:image" content="https://trovanta.net/share-preview.jpg" />
+  <meta property="og:url" content="https://trovanta.net/" />
   <meta property="og:type" content="website" />
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spin & Win $500 PayPal Cash!" />
-  <meta name="twitter:description" content="Only a few spins left today. Try now!" />
-  <meta name="twitter:image" content="https://yourdomain.com/share-preview.jpg" />
+  <meta name="twitter:title" content="Win a $500 PayPal Gift Card!" />
+  <meta name="twitter:description" content="Join now for a chance to win – offer expires soon!" />
+  <meta name="twitter:image" content="https://trovanta.net/share-preview.jpg" />
 
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: radial-gradient(#ffffff, #e6f0ff);
+      height: 100%;
+      background-image: url('Blue and Yellow pc.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      text-align: center;
       padding: 20px;
+      transition: background-image 0.5s ease-in-out;
     }
-
+    @media (max-width: 480px) {
+      body {
+        background-image: url('Blue and Yellow mo.jpg');
+      }
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 14px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
     h1 {
       font-size: 1.8em;
       color: #222;
-      text-align: center;
-      margin-bottom: 10px;
     }
-
-    .wheel-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      margin: 20px auto;
+    p {
+      color: #444;
+      font-size: 1em;
     }
-
-    .wheel {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 10px solid #0070ba;
-      background: conic-gradient(
-        #ffecb3 0deg 60deg,
-        #c8e6c9 60deg 120deg,
-        #bbdefb 120deg 180deg,
-        #ffe0b2 180deg 240deg,
-        #f8bbd0 240deg 300deg,
-        #d1c4e9 300deg 360deg
-      );
-      transition: transform 4s ease-out;
+    .question, .final-step {
+      display: none;
     }
-
-    .pointer {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-bottom: 30px solid red;
-      z-index: 2;
+    .active {
+      display: block;
     }
-
     .button {
-      background-color: #28a745;
+      background-color: #0070ba;
       color: white;
-      padding: 15px 24px;
-      font-size: 1em;
+      padding: 12px 20px;
       border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s;
-    }
-
-    .button:hover {
-      background-color: #218838;
-    }
-
-    .timer {
-      color: #ff4d4f;
-      margin-top: 10px;
+      border-radius: 8px;
       font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
     }
-
-    @media (max-width: 480px) {
-      .wheel-container {
-        width: 240px;
-        height: 240px;
-      }
+    .button:hover {
+      background-color: #005ea6;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Spin the Wheel for a Chance to Win $500!</h1>
-  <div class="wheel-container">
-    <div class="pointer"></div>
-    <div id="wheel" class="wheel"></div>
+  <div class="container">
+    <h1>💸 Claim Your Chance to Win</h1>
+    <p class="intro">Answer these quick questions to check eligibility:</p>
+
+    <div class="question active" id="q1">
+      <p>1. Do you have a PayPal account?</p>
+      <button class="button" onclick="nextStep(1)">Yes</button>
+      <button class="button" onclick="nextStep(1)">No</button>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. What would you spend €500 on?</p>
+      <button class="button" onclick="nextStep(2)">Groceries</button>
+      <button class="button" onclick="nextStep(2)">Bills</button>
+      <button class="button" onclick="nextStep(2)">Gifts</button>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Are you ready to verify via PayPal?</p>
+      <button class="button" onclick="nextStep(3)">Yes, let’s go</button>
+    </div>
+
+    <div class="final-step" id="final">
+      <p>✅ You’re eligible! Please proceed to verify your PayPal account to claim your entry.</p>
+      <a class="button" href="https://ky91x.bemobtrk.com/go/23253cf5-dd23-43f1-b41e-dfa2ae9198ca?" target="_blank">Verify & Continue</a>
+    </div>
   </div>
-  <button class="button" onclick="spinWheel()">Spin Now</button>
-  <div class="timer">⏳ Offer expires in: <span id="countdown">05:00</span></div>
 
   <script>
-    let time = 300;
-    const countdownEl = document.getElementById('countdown');
-    setInterval(() => {
-      const min = Math.floor(time / 60);
-      const sec = time % 60;
-      countdownEl.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-      if (time > 0) time--;
-    }, 1000);
-
-    function spinWheel() {
-      const wheel = document.getElementById('wheel');
-      const degrees = 360 * 5 + Math.floor(Math.random() * 360);
-      wheel.style.transform = `rotate(${degrees}deg)`;
-      
-      setTimeout(() => {
-        // 模拟中奖后跳转
-        window.location.href = "https://sftdn-fast.com/?a=212340&c=407730&co=267520&mt=19";
-      }, 4500);
+    function nextStep(current) {
+      document.getElementById('q' + current).classList.remove('active');
+      if (current < 3) {
+        document.getElementById('q' + (current + 1)).classList.add('active');
+      } else {
+        document.getElementById('final').classList.add('active');
+        document.querySelector('.intro').style.display = 'none';
+      }
     }
   </script>
 </body>
