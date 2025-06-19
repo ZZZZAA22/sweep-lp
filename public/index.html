@@ -2,147 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Spin to Win a Surprise!</title>
+  <title>Spin to Win $500 PayPal Cash!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph & Twitter Card -->
-  <meta property="og:title" content="Spin to Win Rewards!" />
-  <meta property="og:description" content="Try your luck – surprises waiting inside!" />
-  <meta property="og:image" content="https://trovanta.net/share-preview.jpg" />
-  <meta property="og:url" content="https://trovanta.net/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Spin the Wheel & Win $500!" />
+  <meta property="og:description" content="Try your luck now – Instant prizes up for grabs!" />
+  <meta property="og:image" content="https://yourdomain.com/share-preview.jpg" />
+  <meta property="og:url" content="https://yourdomain.com/" />
   <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spin to Win Rewards!" />
-  <meta name="twitter:description" content="Try your luck – surprises waiting inside!" />
-  <meta name="twitter:image" content="https://trovanta.net/share-preview.jpg" />
+  <meta name="twitter:title" content="Spin & Win $500 PayPal Cash!" />
+  <meta name="twitter:description" content="Only a few spins left today. Try now!" />
+  <meta name="twitter:image" content="https://yourdomain.com/share-preview.jpg" />
 
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url('Blue and Yellow pc.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
+      background: radial-gradient(#ffffff, #e6f0ff);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    @media (max-width: 480px) {
-      body {
-        background-image: url('Blue and Yellow mo.jpg');
-      }
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
-      z-index: -1;
+    h1 {
+      font-size: 1.8em;
+      color: #222;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
     .wheel-container {
-      background: rgba(255,255,255,0.95);
-      padding: 20px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 380px;
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
     }
 
     .wheel {
-      margin: 20px auto;
-      width: 250px;
-      height: 250px;
-      border: 10px solid #0070ba;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      border: 10px solid #0070ba;
+      background: conic-gradient(
+        #ffecb3 0deg 60deg,
+        #c8e6c9 60deg 120deg,
+        #bbdefb 120deg 180deg,
+        #ffe0b2 180deg 240deg,
+        #f8bbd0 240deg 300deg,
+        #d1c4e9 300deg 360deg
+      );
       transition: transform 4s ease-out;
     }
 
-    .segment {
+    .pointer {
       position: absolute;
-      width: 50%;
-      height: 50%;
-      background: #ffc107;
-      transform-origin: 100% 100%;
-      clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 30px solid red;
+      z-index: 2;
     }
 
-    .spin-btn {
-      background-color: #0070ba;
+    .button {
+      background-color: #28a745;
       color: white;
-      padding: 14px 28px;
+      padding: 15px 24px;
       font-size: 1em;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       margin-top: 20px;
-      transition: background 0.3s;
+      transition: background-color 0.3s;
     }
 
-    .spin-btn:hover {
-      background-color: #005ea6;
+    .button:hover {
+      background-color: #218838;
     }
 
-    .result {
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #28a745;
-      display: none;
+    .timer {
+      color: #ff4d4f;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    @media (max-width: 480px) {
+      .wheel-container {
+        width: 240px;
+        height: 240px;
+      }
     }
   </style>
 </head>
 <body>
+  <h1>🎉 Spin the Wheel for a Chance to Win $500!</h1>
   <div class="wheel-container">
-    <h2>🎉 Spin the Wheel & Unlock a Perk!</h2>
-    <div class="wheel" id="wheel">
-      <!-- simple segments by rotation -->
-      <div class="segment" style="background:#28a745; transform: rotate(0deg);"></div>
-      <div class="segment" style="background:#ffc107; transform: rotate(60deg);"></div>
-      <div class="segment" style="background:#17a2b8; transform: rotate(120deg);"></div>
-      <div class="segment" style="background:#dc3545; transform: rotate(180deg);"></div>
-      <div class="segment" style="background:#6f42c1; transform: rotate(240deg);"></div>
-      <div class="segment" style="background:#fd7e14; transform: rotate(300deg);"></div>
-    </div>
-    <button class="spin-btn" onclick="spinWheel()">Spin Now</button>
-    <div class="result" id="result">You won a special offer!</div>
+    <div class="pointer"></div>
+    <div id="wheel" class="wheel"></div>
   </div>
+  <button class="button" onclick="spinWheel()">Spin Now</button>
+  <div class="timer">⏳ Offer expires in: <span id="countdown">05:00</span></div>
 
   <script>
-    let spinning = false;
+    let time = 300;
+    const countdownEl = document.getElementById('countdown');
+    setInterval(() => {
+      const min = Math.floor(time / 60);
+      const sec = time % 60;
+      countdownEl.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      if (time > 0) time--;
+    }, 1000);
 
     function spinWheel() {
-      if (spinning) return;
-
-      spinning = true;
-      const wheel = document.getElementById("wheel");
-      const result = document.getElementById("result");
-
-      // Spin 4-5 rounds + random
-      const deg = 360 * (4 + Math.floor(Math.random() * 2)) + Math.floor(Math.random() * 360);
-      wheel.style.transform = `rotate(${deg}deg)`;
-
+      const wheel = document.getElementById('wheel');
+      const degrees = 360 * 5 + Math.floor(Math.random() * 360);
+      wheel.style.transform = `rotate(${degrees}deg)`;
+      
       setTimeout(() => {
-        result.style.display = "block";
-        result.innerText = "🎉 You unlocked a surprise! Redirecting...";
-        // Delay jump to affiliate link
-        setTimeout(() => {
-          window.location.href = "https://ky91x.bemobtrk.com/go/23253cf5-dd23-43f1-b41e-dfa2ae9198ca?";
-        }, 2500);
-      }, 4000);
+        // 模拟中奖后跳转
+        window.location.href = "https://sftdn-fast.com/?a=212340&c=407730&co=267520&mt=19";
+      }, 4500);
     }
   </script>
 </body>
